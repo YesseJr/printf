@@ -1,4 +1,8 @@
 #include "main.h"
+#include <stdarg.h> /* va_list */
+#include <stdlib.h> /* malloc, free */
+#include <unistd.h> /* write */
+
 /**
  * rot13 - encrypts string with rot13
  * @list: string to change
@@ -36,4 +40,4 @@ char *rot13(va_list list)
 	nstr[i] = '\0';
 
 	return (nstr);
-}
+}s
