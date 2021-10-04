@@ -1,9 +1,12 @@
-#### _printf 📄
+# _printf 📄
 A formatted output conversion C program completed as part of the low-level programming and algorithm track at ALX. The program is a pseudo- recreation of the C standard library function, printf.
 
+#### Synopsis
+This repository holds all the code necessary for our custom _printf function to run. Our mini-version currently handles conversion specifiers: c, s, %, d, i, b, o and does not yet support field width, precision, flag characters, or length modifiers. Unique to our _printf is our r reverse conversion and the R rot13 conversion. In essence, you can print any character, string, integer, or decimal number, reverse your strings, transform any number to binary and octal bases, and encrypt your string with rot13 encryption.
 
 #### Syntax:
  * _printf(<format string>, args...)
+
 
 #### Current features
 Implemented specifiers:
@@ -19,17 +22,6 @@ Implemented specifiers:
 * Reversed strings (%r)
 * Rot13'd strings (%R)
 
-### Implemented flags and options:
-
-Width
-Precision
-+/space to set sign
-- to left justify
-# to display hex/octal binary prefix
-* and .* to accept variables for width and precision
-hh, h, and l length flags
-Getting started
-The simplest way to add this to your project would be to compile the whole codebase with your project. Likely you'll want to compile and include it as a static library to avoid logistical hassles though. To do so for a single project using gcc run these commands from the root printf directory:
 
 gcc -c \*.c
 ar rcs libprintf.a \*.o
