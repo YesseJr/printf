@@ -81,7 +81,7 @@ To print decimal numbers and integers:
 _printf("Max int is %d and min int is %i\\n", 2147483647, -2147483648);
 .RE
 .SH BUGS
-Bugs...
+No known bugs.
 .SH SEE ALSO
 .I write(2), printf(3)
 .SH AUTHOR
