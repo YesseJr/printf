@@ -21,6 +21,7 @@ char *itob(va_list list);
 char *rot13(va_list list);
 char *rev_string(va_list list);
 char *itoOctal(va_list list);
+int printstr(char *format, va_list pa)
 
 /**
  * struct types - struct
