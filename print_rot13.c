@@ -1,48 +1,40 @@
 #include "main.h"
+#include <stdarg.h>
+#include <stdlib.h>
 
 /**
- * rot13_fmt - Handles conversion specifier "R"
- * @buffer: Pointer to struct buffer
- * @args: the string to be converted to rot13 and printed
+ * print_R - prints a string in rot13
+ * @R: string to print
  *
- * Return: Pointer to struct buffer.
+ * Return: number of chars printed
  */
-mk_buffer rot13_fmt(mk_buffer buffer, va_list args)
+int print_R(va_list R)
 {
-	int i;
 	char *str;
+	unsigned int i, j;
+	int count = 0;
+	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	char shift13[52] = {'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
-	'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
-	'l', 'm',
-	'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'A',
-	'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'};
-	char letters[52] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-	'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
-	'y', 'z',
-	'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
-	'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-
-	str = va_arg(args, char *);
-
-	while (*str)
+	str = va_arg(R, char *);
+	if (str == NULL)
+		str = "(ahyy)";
+	for (i = 0; str[i]; i++)
 	{
-		for (i = 0; letters[i]; i++)
+		for (j = 0; in[j]; j++)
 		{
-			if (*str == letters[i])
+			if (in[j] == str[i])
 			{
-				*buffer.box = shift13[i];
+				_putchar(out[j]);
+				count++;
 				break;
 			}
 		}
-		if (!letters[i])
-			*buffer.box = *str;
-
-		buffer.box++;
-		buffer.size++;
-		str++;
+		if (!in[j])
+		{
+			_putchar(str[i]);
+			count++;
+		}
 	}
-
-	buffer.box--;
-	return (buffer);
+	return (count);
 }

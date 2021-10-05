@@ -1,43 +1,32 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _MAIN_H_
+#define _MAIN_H_
+
 #include <stdarg.h>
-
-/*===============================*/
-
-/*Dynamic function selection:*/
-
 /**
-* struct typeToPrint - the struct.
-* @types: the format.
-* @printType: the according function.
-* Return: void
-*/
-typedef struct typeToPrint
+ * struct print - structure for printing various types
+ * @t: type to print
+ * @f: function to print
+ */
+typedef struct print
 {
-char *types;
-int (*printType)(va_list);
-} typeToPrint;
+	char *t;
+	int (*f)(va_list);
+} print_t;
 
-/*===============================*/
-
-/*Printing functions:*/
-int printChar(va_list);
-int printString(va_list);
-int printPercent(va_list);
-int printInteger(va_list);
-int printBinary(va_list obj);
-int printUnsign(va_list obj);
-int printOctal(va_list obj);
-int printHexL(va_list obj);
-int printHexU(va_list obj);
-int printString_S(va_list obj);
-void print_hexa(unsigned int n);
-int printPointer(va_list obj);
-
-/*===============================*/
-
-/*Main function:*/
-int _printf(const char *format, ...);
 int _putchar(char c);
+int _printf(const char *format, ...);
+int print_c(va_list c);
+int print_s(va_list s);
+int print_i(va_list i);
+int print_d(va_list d);
+int print_u(va_list u);
+int print_b(va_list b);
+int print_o(va_list o);
+int print_x(va_list x);
+int print_X(va_list X);
+int print_p(va_list p);
+int print_S(va_list S);
+int print_r(va_list r);
+int print_R(va_list R);
 
-#endif
+#endif  /* _MAIN_H */
