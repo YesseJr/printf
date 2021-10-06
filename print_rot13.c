@@ -1,40 +1,48 @@
+/*
+ * File - print_rot13.c
+ * Authors: Waython Yesse
+ *      and Damiano Semufali
+ */
+
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
 
 /**
- * print_R - prints a string in rot13
- * @R: string to print
- *
- * Return: number of chars printed
+ * rot13 - encrypts string with rot13
+ * @list: string to change
+ * Return: modified string
  */
-int print_R(va_list R)
+char *rot13(va_list list)
 {
+	int i = 0;
 	char *str;
-	unsigned int i, j;
-	int count = 0;
-	char in[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *nstr;
 
-	str = va_arg(R, char *);
-	if (str == NULL)
-		str = "(ahyy)";
-	for (i = 0; str[i]; i++)
+	/* store va_arg to only access argument once */
+	str = va_arg(list, char *);
+
+	/* malloc new variable to assign over new rot13 characters */
+	nstr = malloc(sizeof(char) * (_strlen(str) + 1));
+	if (nstr == NULL)
+		return (NULL);
+
+	/* iterate str and assign rot13 char to nstr */
+	while (str[i] != '\0')
 	{
-		for (j = 0; in[j]; j++)
+		if ((str[i] >= 'a' && str[i] <= 'm') || (str[i] >= 'A' && str[i] <= 'M'))
 		{
-			if (in[j] == str[i])
-			{
-				_putchar(out[j]);
-				count++;
-				break;
-			}
+			nstr[i] = str[i] + 13;
 		}
-		if (!in[j])
+		else if ((str[i] >= 'n' && str[i] <= 'z') || (str[i] >= 'N' && str[i] <= 'Z'))
 		{
-			_putchar(str[i]);
-			count++;
+			nstr[i] = str[i] - 13;
 		}
+		else
+			(nstr[i] = str[i]);
+		i++;
 	}
-	return (count);
+	nstr[i] = '\0';
+
+	return (nstr);
 }

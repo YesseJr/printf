@@ -1,6 +1,13 @@
+/*
+ * File - print_pointers.c
+ * Authors: Waython Yesse
+ *      and Damiano Semufali
+ */
+
+#include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
-#include "main.h"
+#include <stdlib.h>
 
 /**
 * printPointer -  print a pointer.
