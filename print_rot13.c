@@ -5,44 +5,41 @@
  */
 
 #include "main.h"
-#include <stdarg.h>
 #include <stdlib.h>
 
 /**
- * rot13 - encrypts string with rot13
- * @list: string to change
- * Return: modified string
+ * op_R - prints a string in rot13
+ * @R: string to print
+ *
+ * Return: number of chars printed
  */
-char *rot13(va_list list)
+int op_R(va_list R)
 {
-	int i = 0;
 	char *str;
-	char *nstr;
+	unsigned int i, j;
+	int count = 0;
+	char x[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char y[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	/* store va_arg to only access argument once */
-	str = va_arg(list, char *);
-
-	/* malloc new variable to assign over new rot13 characters */
-	nstr = malloc(sizeof(char) * (_strlen(str) + 1));
-	if (nstr == NULL)
-		return (NULL);
-
-	/* iterate str and assign rot13 char to nstr */
-	while (str[i] != '\0')
+	str = va_arg(R, char *);
+	if (str == NULL)
+		str = "(ahyy)";
+	for (i = 0; str[i]; i++)
 	{
-		if ((str[i] >= 'a' && str[i] <= 'm') || (str[i] >= 'A' && str[i] <= 'M'))
+		for (j = 0; x[j]; j++)
 		{
-			nstr[i] = str[i] + 13;
+			if (x[j] == str[i])
+			{
+				_putchar(y[j]);
+				count++;
+				break;
+			}
 		}
-		else if ((str[i] >= 'n' && str[i] <= 'z') || (str[i] >= 'N' && str[i] <= 'Z'))
+		if (!x[j])
 		{
-			nstr[i] = str[i] - 13;
+			_putchar(str[i]);
+			count++;
 		}
-		else
-			(nstr[i] = str[i]);
-		i++;
 	}
-	nstr[i] = '\0';
-
-	return (nstr);
+	return (count);
 }
