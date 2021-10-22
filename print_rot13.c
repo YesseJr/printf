@@ -4,6 +4,7 @@
  *          And - Damiano 
  */
 
+#include <stdarg.h>
 #include "main.h"
 /**
  * rot13 - encrypts string with rot13

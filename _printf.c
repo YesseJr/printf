@@ -109,7 +109,7 @@ int _printf(const char *format, ...)
 
 /**
  * main - sample main program
- * Return: 0 on sucess
+ * Return: always 0 on sucess
  */
 int main(void)
 {
