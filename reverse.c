@@ -1,9 +1,3 @@
-/*
- * Project: Printf (The team project).
- * The team of; - Waython Yesse
- *          and - Damiano 
- */
-
 #include "main.h"
 
 /**

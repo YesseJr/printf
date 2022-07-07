@@ -1,10 +1,4 @@
-/*
- * Project: Printf (The team project).
- * The team of; - Waython Yesse
- *          and - Damiano 
- */
-
-#include "main.h"
+#include "holberton.h"
 
 /**
  * itob - change int to binary

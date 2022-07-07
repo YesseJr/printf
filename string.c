@@ -1,11 +1,4 @@
-/*
- * Project: Printf, (The team project).
- * The team of; - Waython Yesse
- *          And - Damiano 
- */
-
 #include "main.h"
-
 /**
  * print_s - takes string and return string
  * @list: string

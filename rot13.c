@@ -1,15 +1,3 @@
-/*
- * Project: Printf, (The team project).
- * The team of; - Waython Yesse
- *          And - Damiano 
- */
-
-#include "main.h"
-
-int _printf(const char *format, ...)
-
-{
-#include <stdarg.h>
 #include "main.h"
 /**
  * rot13 - encrypts string with rot13
@@ -48,6 +36,4 @@ char *rot13(va_list list)
 	nstr[i] = '\0';
 
 	return (nstr);
-}
-return (0);
 }
